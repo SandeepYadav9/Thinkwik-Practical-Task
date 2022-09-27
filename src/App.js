@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { Fragment } from "react";
+import Header from "./components/Header/Header";
+import AppNavigator from "./Navigator/AppNavigator";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <Fragment>
+      <Header />
+      <div>
+        <AppNavigator />
+      </div>
+    </Fragment>
+  );
+};
 
-export default App
+export default App;

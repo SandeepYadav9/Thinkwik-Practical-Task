@@ -1,0 +1,28 @@
+.header{
+    background-color: gray;
+    padding: 0.3rem;
+    color: white;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+}
+.header span {
+    width: 100px;
+}
+.header-right{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10px;
+}
+.header-right a{
+    color: white;
+}
+.header-right a:hover{
+    color: orange;
+    transition: 5s;
+}
