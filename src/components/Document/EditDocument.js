@@ -1,23 +1,23 @@
 import React from 'react'
 
-const EditDocument = () => {
+const EditDocument = ({editForm, onEditChange}) => {
   return (
     <tr>
        <td>
-        <input type="text" required placeholder='Full Name' />
+        <input type="text" required placeholder='Full Name' value={editForm.fullName}  onChange={onEditChange}/>
        </td>
        <td>
-        <input type="text" required  placeholder='Address'/>
+        <input type="text" required  placeholder='Address'  value={editForm.address} onChange={onEditChange}/>
        </td>
        <td>
-        <input type="text" required placeholder='PhoneNumber'/>
+        <input type="text" required placeholder='PhoneNumber'  value={editForm.phoneNumber} onChange={onEditChange}/>
        </td>
        <td>
-        <input type="text" required placeholder='Email '/>
+        <input type="email" required placeholder='Email '  value={editForm.email} onChange={onEditChange}/>
        </td>
        <td>
-        <button>Save</button>
-        <button>Cancel</button>
+        <button type='submit' >Save</button>
+       
        </td>
     </tr>
   )

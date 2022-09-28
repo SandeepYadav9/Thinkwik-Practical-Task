@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import "./Home.css";
 import documents from "../Data/document.json";
 import ReadOnlyDocument from "../components/Document/ReadOnlyDocument";
@@ -14,34 +14,64 @@ const Home = () => {
     email: "",
   });
 
+  const [editForm, setEditForm] = useState({
+    fullName: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+  });
+
   const onChangeValidationForm = (e) => {
     let fildedName = e.target.name;
     let filedValue = e.target.value;
     let newFormData = { ...formValidation };
-    newFormData[fildedName] = filedValue;    
+    newFormData[fildedName] = filedValue;
     setFormValidatation(newFormData);
   };
 
-const submitFormData = (e)=>{
-    e.preventDefault()
-    let newFormData ={   
-        id: nanoid(),   
-        fullName: formValidation.fullName,
-        address: formValidation.address,
-        phoneNumber:formValidation.phoneNumber,
-        email: formValidation.email
-    }
-   
-    setDocumentDatas([...documentDatas, newFormData])
-}
+  const submitFormData = (e) => {
+    e.preventDefault();
+    let newFormData = {
+      id: nanoid(),
+      fullName: formValidation.fullName,
+      address: formValidation.address,
+      phoneNumber: formValidation.phoneNumber,
+      email: formValidation.email,
+    };
 
-const editDocumentInput=(e, document)=>{
-    e.preventDefault()
-    setEditId(document.id)
+    setDocumentDatas([...documentDatas, newFormData]);
+  };
+  // <-------------------------Edit Form --------------------->
+ const onEditChange=(e)=>{
+    let editName = e.target.name;
+    let editValue = e.target.value;
+    let newEditForm = { ...editForm };
+    newEditForm[editName] = editValue;
+    setEditForm(newEditForm);
+ }
+
+  const editDocumentInput = (e, document) => {
+    e.preventDefault();
+    setEditId(document.id);
+    const formValues = {
+        fullName:document.fullName,
+        address: document.address,
+        phoneNumber: document.phoneNumber,
+        email: document.email
+      };
+ 
+     setEditForm(formValues)   
+  };
+const editFormSubmit=(e)=>{
+    e.preventDefault();
+
+   
+
 }
   return (
     <div className="home-container">
       {/* <-----------------------------------Table Filed------------------------------------> */}
+      <form onSubmit={editFormSubmit}>
       <table>
         <thead>
           <tr>
@@ -56,15 +86,26 @@ const editDocumentInput=(e, document)=>{
           </tr>
         </thead>
         <tbody>
-          {documentDatas.map((document) => {
-            return(
-            <>
-            {editId === document.id ? <EditDocument/> : <ReadOnlyDocument editDocumentInput={editDocumentInput} document={document}/> }
-
-            </>
-          )})}
+          {documentDatas.map((document) =>(
+              <Fragment key={document.id}>
+                {editId === document.id ? (
+                  <EditDocument
+                  editForm={editForm}
+                  onEditChange={onEditChange}
+                 
+                  />
+                ) : (
+                  <ReadOnlyDocument
+                    editDocumentInput={editDocumentInput}
+                    document={document}
+                  />
+                )}
+              </Fragment>
+            )
+          )}
         </tbody>
       </table>
+      </form>
       {/* <-----------------------------------Table Input Document Filed------------------------------------> */}
       <h2>Add Documents</h2>
       <form onSubmit={submitFormData}>
