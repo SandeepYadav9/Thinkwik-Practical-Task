@@ -1,0 +1,16 @@
+[
+    {
+        "id":1,
+        "fullName":"Sandeep Yadav",
+        "address":"Kolkata",
+        "phoneNumber":"840-042-0939",
+        "email":"sandeepuit10@gmail.com"
+    },
+    {
+        "id":2,
+        "fullName":"Anurag Singh",
+        "address":"Jaunpur ",
+        "phoneNumber":"800-042-0989",
+        "email":"anuraguit10@gmail.com"
+    }
+]
