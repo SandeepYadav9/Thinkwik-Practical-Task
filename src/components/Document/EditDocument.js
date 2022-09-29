@@ -1,5 +1,5 @@
 import React from "react";
-
+import './EditDocument.css'
 const EditDocument = ({ editForm, onEditChange, cancelDocument }) => {
   return (
     <tr>
@@ -7,6 +7,7 @@ const EditDocument = ({ editForm, onEditChange, cancelDocument }) => {
         <input
           type="text"
           required
+          name="fullName"
           placeholder="Full Name"
           value={editForm.fullName}
           onChange={onEditChange}
@@ -16,6 +17,7 @@ const EditDocument = ({ editForm, onEditChange, cancelDocument }) => {
         <input
           type="text"
           required
+          name="address"
           placeholder="Address"
           value={editForm.address}
           onChange={onEditChange}
@@ -25,6 +27,7 @@ const EditDocument = ({ editForm, onEditChange, cancelDocument }) => {
         <input
           type="text"
           required
+          name="phoneNumber"
           placeholder="PhoneNumber"
           value={editForm.phoneNumber}
           onChange={onEditChange}
@@ -34,12 +37,13 @@ const EditDocument = ({ editForm, onEditChange, cancelDocument }) => {
         <input
           type="email"
           required
+          name="email"
           placeholder="Email "
           value={editForm.email}
           onChange={onEditChange}
         />
       </td>
-      <td>
+      <td className="actions-edit">
         <button type="submit">Save</button>
         <button onClick={cancelDocument}>Cancel</button>
       </td>

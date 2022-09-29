@@ -5,8 +5,7 @@
 text-align: center;
 }
 .add-document{
-    text-align: center;
-    
+    text-align: center;    
 }
 .add-input{
     padding: 10px;
@@ -16,12 +15,19 @@ text-align: center;
 .submit-button{
     padding: 10px 20px;
     cursor: pointer;
+    border: none;
+    background-color: gray;
+    color: white;
+    border-radius: 4px;
 }
 
-
-form{
-   
+.submit-button:hover{
+    background-color: darkgray;
+    color: black;
+    transition: 0.10s;
 }
-table {
-   
+.document-empty{
+    text-align: center;
+    font-weight: bolder;
+    font-size: larger;
 }

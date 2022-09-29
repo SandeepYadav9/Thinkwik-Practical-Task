@@ -44,14 +44,18 @@
 .login-action button {
   margin-top: 20px;
   padding: 0.6rem 6rem;
- 
+  border: none;
 }
-.login-action button:hover, button:active{
+.login-action button:hover,
+button:active {
   cursor: pointer;
+  background-color: gray;
+  color: white;
+  transition: 2s;
 }
 .login-action button:disabled,
 button:active,
-button:hover {  
+button:hover {
   background-color: #ccc;
   /* cursor: not-allowed; */
   color: black;

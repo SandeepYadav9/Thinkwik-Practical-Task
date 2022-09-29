@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import "./Home.css";
 import documents from "../Data/document.json";
 import ReadOnlyDocument from "../components/Document/ReadOnlyDocument";
@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 import EditDocument from "../components/Document/EditDocument";
 import Pagination from "../components/Pagination/Pagination";
 const Home = () => {
-  const [documentDatas, setDocumentDatas] = useState(documents);  
+  const [documentDatas, setDocumentDatas] = useState(documents);
   const [editId, setEditId] = useState(null);
   const [formValidation, setFormValidatation] = useState({
     fullName: "",
@@ -22,11 +22,11 @@ const Home = () => {
     email: "",
   });
 
-// <-----------------------------------Paginaton State ----------------------->
+  // <-----------------------------------Paginaton State ----------------------->
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage] = useState(2);
 
-// <-----------------------------------Vlidate form  ----------------------->
+  // <-----------------------------------Vlidate form  ----------------------->
   const onChangeValidationForm = (e) => {
     let fildedName = e.target.name;
     let filedValue = e.target.value;
@@ -83,7 +83,8 @@ const Home = () => {
     setDocumentDatas(newDocuments);
     setEditId(null);
   };
-// <-----------------------------------Delete Document Input  ----------------------->
+
+  // <-----------------------------------Delete Document Input  ----------------------->
   const deleteDocumentInput = (documentId) => {
     const newDocuments = [...documentDatas];
     const index = documentDatas.findIndex(
@@ -92,7 +93,7 @@ const Home = () => {
     newDocuments.splice(index, 1);
     setDocumentDatas(newDocuments);
   };
-// <-----------------------------------Cancel Document  ----------------------->
+  // <-----------------------------------Cancel Document  ----------------------->
   const cancelDocument = () => {
     setEditId(null);
   };
@@ -103,9 +104,6 @@ const Home = () => {
   let currentPosts = documentDatas.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-
- 
-  
   return (
     <div>
       <div className="home-container">
@@ -156,15 +154,17 @@ const Home = () => {
           {/* <-----------------------------------Table Filed------------------------------------> */}
           <form onSubmit={editFormSubmit}>
             <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>Phone Number</th>
-                  <th>EMAIL</th>
-                  <th>Actions </th>
-                </tr>
-              </thead>
+              {documentDatas.length > 0 && (
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>EMAIL</th>
+                    <th>Actions </th>
+                  </tr>
+                </thead>
+              )}
               <tbody>
                 {currentPosts.map((document) => (
                   <Fragment key={document.id}>
@@ -185,10 +185,13 @@ const Home = () => {
                 ))}
               </tbody>
             </table>
+            {documentDatas.length === 0 && (
+              <div className="document-empty"> No document found!!</div>
+            )}
           </form>
         </div>
       </div>
-     {/* <----------------------------------- Pagination -----------------------> */}
+      {/* <----------------------------------- Pagination -----------------------> */}
       <div>
         <Pagination
           postsPerPage={postPerPage}

@@ -5,6 +5,7 @@ import  "./Signup.css";
 
 const Signup = () => {
   const navigate = useNavigate();
+ const [isLoading, setIsLoading]=useState(false)
   const [formIsValid, setFormIsValid] = useState(false);
   const {
     value: fristName,
@@ -39,11 +40,20 @@ const Signup = () => {
     if (!validEmail && !validFristName && validPassword ) {
       return;
     } 
-    navigate("/login", { replace: true }); 
+    
+   
     resetFristNameHandler();
     resetEmailHandler();   
     resetPasswordrHandler();
   };
+  
+const loadData=()=>{
+  setIsLoading(true)
+  setTimeout(()=>{
+    setIsLoading(false)
+    navigate("/login", { replace: true }); 
+  },3500)
+}
 
   useEffect(() => {
     if (validEmail && validFristName && validPassword ) {
@@ -63,7 +73,7 @@ const Signup = () => {
             type="text"
             id="fname"
             placeholder="Full Name EX. Sandeep Yadav "
-            value={fristName && localStorage.setItem("EMAIL", fristName)}
+            value={fristName }
             onChange={onFristNameChangeHandler}
             onBlur={fristnameBlurHandler}
           />
@@ -97,17 +107,16 @@ const Signup = () => {
             <p className="signup-error">Please enter a password.</p>
           )}
         </div>
-        <div className="signup-action">
-          <button type="submit" disabled={!formIsValid}>
+        <div className="signup-action" onClick={loadData}>
+       {isLoading ? " " :   <button type="submit" disabled={!formIsValid}>
             Continue
-          </button>
+          </button>}
+          {isLoading ? <h4>Loading Your Data..</h4> : ""}
         </div>
       </form>
       <footer>
         <p>
-          Already have an account ?<NavLink to="/login"> Login </NavLink>{" "}
-          <br />
-          <NavLink to="/">Back To Home</NavLink>
+          Already have an account ?<NavLink to="/login"> Login </NavLink>{" "}         
         </p>
       </footer>
     </div>

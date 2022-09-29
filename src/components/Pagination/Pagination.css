@@ -9,12 +9,19 @@ nav {
     margin: 1rem;
     list-style: none;
   }
-  .pagination li {
-    border: 1px solid gray;
+  .pagination li {   
     padding: 3px 8px;
     border-radius: 4px;
   }
   ul li a {
     text-decoration: none;
   }
-  
+  .pagination-list{
+
+  }
+  .pagination-list button{
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid gray;
+    cursor: pointer;
+  }

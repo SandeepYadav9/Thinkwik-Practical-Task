@@ -27,16 +27,21 @@
 }
 .signup-action {
   width: 100%;
+
   
 }
 .signup-action button {
   margin-top: 20px;
   padding: 0.6rem 6rem;
   color: black;
+  border: none;
+  
 }
 .signup-action button:hover,
 button:active {
+  background-color: darkgray;
   cursor: pointer;
+  color: white;
 }
 .signup-action button:disabled,
 button:active,

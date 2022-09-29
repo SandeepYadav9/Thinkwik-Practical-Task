@@ -1,5 +1,5 @@
 import React from "react";
-
+import './ReadOnlyDocument.css'
 const ReadOnlyDocument = ({
   document,
   editDocumentInput,
@@ -11,8 +11,8 @@ const ReadOnlyDocument = ({
       <td>{document.address}</td>
       <td>{document.phoneNumber}</td>
       <td>{document.email}</td>
-      <td>
-        <button onClick={(e) => editDocumentInput(e, document)}>Edid</button>
+      <td className="actions-read">
+        <button onClick={(e) => editDocumentInput(e, document)}>Edit</button>
         <button onClick={() => deleteDocumentInput(document)}>Delete</button>
       </td>
     </tr>

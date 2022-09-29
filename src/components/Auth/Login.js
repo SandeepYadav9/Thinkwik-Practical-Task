@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => { 
   const navigate = useNavigate();
   const [formIsValid, setFormIsValid] = useState(false);
-
+  const [isLoading, setIsLoading]=useState(false)
 
   const {
     value: email,
@@ -32,7 +32,7 @@ const Login = () => {
     if (!validEmail && !validPassword) {
       return;
     }      
-    navigate("/", { replace: true });
+   
     resetEmailHandler();
     resetPasswordrHandler();
   };
@@ -45,6 +45,14 @@ const Login = () => {
     localStorage.setItem("TOKEN", null);
    
   };
+
+  const loadData=()=>{
+    setIsLoading(true)
+    setTimeout(()=>{
+      setIsLoading(false)
+      navigate("/", { replace: true }); 
+    },3500)
+  }
 
   useEffect(() => {
     if (validEmail && validPassword) {
@@ -89,10 +97,11 @@ const Login = () => {
           )}
         </div>
 
-        <div className="login-action">
-          <button type="submit" onClick={logoutHandler} disabled={!formIsValid}>
+        <div className="login-action" onClick={loadData}>
+        {isLoading ? "" :  <button type="submit" onClick={logoutHandler} disabled={!formIsValid}>
             Login
-          </button>
+          </button>}
+          {isLoading ? <h4>Loading Your Data..</h4> : ""}
         </div>
       </form>
       <footer>

@@ -1,0 +1,15 @@
+
+.actions-edit button{
+    padding: 10px 20px;
+    margin: 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: gray;
+    color: white;
+}
+.actions-edit button:hover{
+    background-color: darkgray;
+    color: black;
+    transition: 0.10s;
+}
