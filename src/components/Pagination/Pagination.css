@@ -1,0 +1,20 @@
+nav {
+    margin: 0 auto;
+    width: 15rem;
+  }
+  .pagination {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+    list-style: none;
+  }
+  .pagination li {
+    border: 1px solid gray;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  ul li a {
+    text-decoration: none;
+  }
+  

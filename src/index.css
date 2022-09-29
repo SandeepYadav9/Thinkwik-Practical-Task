@@ -11,3 +11,10 @@ body {
 a {
   text-decoration: none;
 }
+table, thead , th ,tr , td{
+  text-align: center;
+  margin: 10px auto;
+  border: 1px solid gray;
+  border-collapse: collapse; 
+  padding: 1rem 2rem; 
+}

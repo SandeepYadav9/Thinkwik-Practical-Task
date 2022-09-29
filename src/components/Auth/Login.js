@@ -31,37 +31,7 @@ const Login = () => {
     e.preventDefault();
     if (!validEmail && !validPassword) {
       return;
-    }
-
-    // try {
-    //   let login = await fetch("http://localhost:5002/login", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       email:email,
-    //       password:password,
-    //     }),
-    //   });
-
-    //   if (!login.ok) {
-    //     throw new Error(`HTTP REQ ERROR ${login.status}`);
-    //   } else {
-       
-    //     // let responseData = await login.json();
-    //     const response = await login.json();       
-       
-    //     localStorage.setItem("TOKEN", response.jwttoken);  
-    //     console.log(response)     
-    //     navigate("/home", { replace: true });
-    
-    
-    //   }
-    // } catch (error) {
-    //     alert("Somthing Went Worng !!")     
-    //   }
-      
+    }      
     navigate("/", { replace: true });
     resetEmailHandler();
     resetPasswordrHandler();
@@ -84,12 +54,7 @@ const Login = () => {
     }
   }, [validEmail, validPassword]);
 
-  // const onInputChange = (attr, value) => {
-  //   const tempFormFields = {...formFields};
-  //   tempFormFields[attr] = value;
-  //   setFormFields(prev => prev = tempFormFields);
-  // }
-  //const formControlClass = invalidEmail ? "inputFiled invalid" : "inputFiled"
+ 
   return (
     <div className="login-container">
       <h3 className="login-title">Sign-In</h3>
@@ -110,14 +75,7 @@ const Login = () => {
         </div>
         <div className="login-input">
           <label htmlFor="password">Password</label>
-          {/* <input
-            type="password"
-            id="password"
-            placeholder="At list 6 charector Ex 123456"
-            value={formFields.password}
-            onChange={(e) => onInputChange('password', e.target.value)}
-            onBlur={passwordBlurHandler}
-          /> */}
+        
           <input
             type="password"
             id="password"

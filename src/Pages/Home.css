@@ -1,3 +1,27 @@
 .home-container{
     margin: 5rem auto;
 }
+.home-container1 h2{
+text-align: center;
+}
+.add-document{
+    text-align: center;
+    
+}
+.add-input{
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+.submit-button{
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+form{
+   
+}
+table {
+   
+}

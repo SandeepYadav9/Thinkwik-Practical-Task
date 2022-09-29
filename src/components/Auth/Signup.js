@@ -38,32 +38,7 @@ const Signup = () => {
     e.preventDefault();
     if (!validEmail && !validFristName && validPassword ) {
       return;
-    }
-
-//     try {
-//       let signup = await fetch("http://localhost:5002/signup", {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//           body: JSON.stringify({
-//             email:email,            
-//             password:password,
-//             lastName:lastname,
-//             fristName:fristName       
-//           }),
-//         });
-//         if (!signup.ok) {
-//           throw new Error(`HTTP REQ ERROR ${signup.status}`)
-//         }else{
-//           let responseData = await signup.json(); 
-//           console.log(responseData)   
-//           localStorage.setItem("USERNAME", fristName);  
-//           navigate("/login", { replace: true });
-//   }
-// } catch (error) {
-//   alert("Somting Went Worng !!", error)  
-// }  
+    } 
     navigate("/login", { replace: true }); 
     resetFristNameHandler();
     resetEmailHandler();   
